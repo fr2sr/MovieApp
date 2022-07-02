@@ -80,4 +80,10 @@ class MovieDetailsCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    
+    func setMovieDataToCell(data: MovieDataResponseModel){
+        titleLabel.text = data.original_title ?? ""
+        detailsLabel.text = data.overview ?? ""
+    }
 }
