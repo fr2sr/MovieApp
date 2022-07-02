@@ -11,6 +11,11 @@
 		73315B6928709738004A8008 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73315B6828709738004A8008 /* HomeVC.swift */; };
 		73315B6E2870973E004A8008 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73315B6D2870973E004A8008 /* Assets.xcassets */; };
 		73315B712870973E004A8008 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73315B6F2870973E004A8008 /* LaunchScreen.storyboard */; };
+		73315B7928709DB8004A8008 /* MovieDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73315B7828709DB8004A8008 /* MovieDetailsCell.swift */; };
+		73315B7C2870A41A004A8008 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73315B7B2870A41A004A8008 /* UITextFieldExtension.swift */; };
+		73315B7E2870A469004A8008 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73315B7D2870A469004A8008 /* UIViewControllerExtension.swift */; };
+		73315B802870AFA5004A8008 /* UIStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73315B7F2870AFA5004A8008 /* UIStringExtension.swift */; };
+		73315B822870B14D004A8008 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73315B812870B14D004A8008 /* UIColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +25,11 @@
 		73315B6D2870973E004A8008 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		73315B702870973E004A8008 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		73315B722870973E004A8008 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		73315B7828709DB8004A8008 /* MovieDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsCell.swift; sourceTree = "<group>"; };
+		73315B7B2870A41A004A8008 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
+		73315B7D2870A469004A8008 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		73315B7F2870AFA5004A8008 /* UIStringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStringExtension.swift; sourceTree = "<group>"; };
+		73315B812870B14D004A8008 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,13 +62,26 @@
 		73315B6328709738004A8008 /* MovieApp */ = {
 			isa = PBXGroup;
 			children = (
+				73315B7A2870A40A004A8008 /* Extension */,
 				73315B6428709738004A8008 /* AppDelegate.swift */,
 				73315B6828709738004A8008 /* HomeVC.swift */,
+				73315B7828709DB8004A8008 /* MovieDetailsCell.swift */,
 				73315B6D2870973E004A8008 /* Assets.xcassets */,
 				73315B6F2870973E004A8008 /* LaunchScreen.storyboard */,
 				73315B722870973E004A8008 /* Info.plist */,
 			);
 			path = MovieApp;
+			sourceTree = "<group>";
+		};
+		73315B7A2870A40A004A8008 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				73315B7B2870A41A004A8008 /* UITextFieldExtension.swift */,
+				73315B7D2870A469004A8008 /* UIViewControllerExtension.swift */,
+				73315B7F2870AFA5004A8008 /* UIStringExtension.swift */,
+				73315B812870B14D004A8008 /* UIColor.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -131,6 +154,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73315B802870AFA5004A8008 /* UIStringExtension.swift in Sources */,
+				73315B822870B14D004A8008 /* UIColor.swift in Sources */,
+				73315B7928709DB8004A8008 /* MovieDetailsCell.swift in Sources */,
+				73315B7C2870A41A004A8008 /* UITextFieldExtension.swift in Sources */,
+				73315B7E2870A469004A8008 /* UIViewControllerExtension.swift in Sources */,
 				73315B6928709738004A8008 /* HomeVC.swift in Sources */,
 				73315B6528709738004A8008 /* AppDelegate.swift in Sources */,
 			);
