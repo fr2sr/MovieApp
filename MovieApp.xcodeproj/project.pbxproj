@@ -17,6 +17,8 @@
 		73315B802870AFA5004A8008 /* UIStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73315B7F2870AFA5004A8008 /* UIStringExtension.swift */; };
 		73315B822870B14D004A8008 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73315B812870B14D004A8008 /* UIColor.swift */; };
 		73315B842870B347004A8008 /* MovieResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73315B832870B347004A8008 /* MovieResponseModel.swift */; };
+		73315B862870BA92004A8008 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73315B852870BA92004A8008 /* UIImageView.swift */; };
+		73315B882870BCAD004A8008 /* MovieEmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73315B872870BCAD004A8008 /* MovieEmptyCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		73315B7F2870AFA5004A8008 /* UIStringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStringExtension.swift; sourceTree = "<group>"; };
 		73315B812870B14D004A8008 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		73315B832870B347004A8008 /* MovieResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieResponseModel.swift; sourceTree = "<group>"; };
+		73315B852870BA92004A8008 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		73315B872870BCAD004A8008 /* MovieEmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieEmptyCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,7 @@
 				73315B6828709738004A8008 /* HomeVC.swift */,
 				73315B832870B347004A8008 /* MovieResponseModel.swift */,
 				73315B7828709DB8004A8008 /* MovieDetailsCell.swift */,
+				73315B872870BCAD004A8008 /* MovieEmptyCell.swift */,
 				73315B6D2870973E004A8008 /* Assets.xcassets */,
 				73315B6F2870973E004A8008 /* LaunchScreen.storyboard */,
 				73315B722870973E004A8008 /* Info.plist */,
@@ -83,6 +88,7 @@
 				73315B7D2870A469004A8008 /* UIViewControllerExtension.swift */,
 				73315B7F2870AFA5004A8008 /* UIStringExtension.swift */,
 				73315B812870B14D004A8008 /* UIColor.swift */,
+				73315B852870BA92004A8008 /* UIImageView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -158,8 +164,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				73315B802870AFA5004A8008 /* UIStringExtension.swift in Sources */,
+				73315B862870BA92004A8008 /* UIImageView.swift in Sources */,
 				73315B822870B14D004A8008 /* UIColor.swift in Sources */,
 				73315B7928709DB8004A8008 /* MovieDetailsCell.swift in Sources */,
+				73315B882870BCAD004A8008 /* MovieEmptyCell.swift in Sources */,
 				73315B7C2870A41A004A8008 /* UITextFieldExtension.swift in Sources */,
 				73315B842870B347004A8008 /* MovieResponseModel.swift in Sources */,
 				73315B7E2870A469004A8008 /* UIViewControllerExtension.swift in Sources */,

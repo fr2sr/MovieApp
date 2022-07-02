@@ -50,6 +50,7 @@ class HomeVC: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(MovieDetailsCell.self, forCellReuseIdentifier: MovieDetailsCell.identifire)
+        tableView.register(MovieEmptyCell.self, forCellReuseIdentifier: MovieEmptyCell.identifire)
         return tableView
     }()
     
@@ -77,10 +78,17 @@ class HomeVC: UIViewController {
         view.backgroundColor = .white
     
         setupConstraints()
+        searchButton.addTarget(self, action: #selector(searchMovie),for: .touchUpInside)
         
         getMovieData(query: "Marvel")
     }
     
+    @objc func searchMovie(sender: UIButton) {
+        print("click")
+        movieDataResponseModel.removeAll()
+        movieTableView.reloadData()
+        getMovieData(query: searchField.text!)
+    }
     
     func getMovieData(query: String){
         
@@ -101,14 +109,16 @@ class HomeVC: UIViewController {
     }
     
     func onSuccessGetData(movieData: MovieResponseModel){
-        
         movieResponseModel = movieData
-        
-        movieDataResponseModel = movieResponseModel.results ?? movieDataResponseModel
-        
+        let emptyCellData = [MovieDataResponseModel]()
+        movieDataResponseModel.append(contentsOf: movieResponseModel.results ?? emptyCellData)
         DispatchQueue.main.async {
             self.movieTableView.reloadData()
         }
+    }
+    
+    func onFailed(){
+        
     }
     
     func setupConstraints() {
@@ -170,16 +180,22 @@ class HomeVC: UIViewController {
 
 extension HomeVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return movieDataResponseModel.count
+        return movieDataResponseModel.count == 0 ? 1 : movieDataResponseModel.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: MovieDetailsCell.identifire) as! MovieDetailsCell
         
-        tableView.rowHeight = 120
-        
-        cell.setMovieDataToCell(data: movieDataResponseModel[indexPath.row])
-        return cell
+        if movieDataResponseModel.count == 0{
+            let cell = tableView.dequeueReusableCell(withIdentifier: MovieEmptyCell.identifire) as! MovieEmptyCell
+            tableView.rowHeight = movieTableView.bounds.height
+            return cell
+        }
+        else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: MovieDetailsCell.identifire) as! MovieDetailsCell
+            tableView.rowHeight = 120
+            cell.setMovieDataToCell(data: movieDataResponseModel[indexPath.row])
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -191,5 +207,4 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
             }
         }
     }
-    
 }

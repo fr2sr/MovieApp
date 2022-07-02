@@ -20,6 +20,13 @@ class MovieDetailsCell: UITableViewCell {
         return img
     }()
     
+    lazy var labelView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.clipsToBounds = true
+        return view
+    }()
+    
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Movie Name"
@@ -45,13 +52,16 @@ class MovieDetailsCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         
-        contentView.addSubview(titleLabel)
-        contentView.addSubview(detailsLabel)
+        
+        contentView.addSubview(labelView)
+        labelView.addSubview(titleLabel)
+        labelView.addSubview(detailsLabel)
         contentView.addSubview(movieImage)
         
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         detailsLabel.translatesAutoresizingMaskIntoConstraints = false
         movieImage.translatesAutoresizingMaskIntoConstraints = false
+        labelView.translatesAutoresizingMaskIntoConstraints = false
         
         // Set static constraints
         NSLayoutConstraint.activate([
@@ -62,17 +72,22 @@ class MovieDetailsCell: UITableViewCell {
             movieImage.widthAnchor.constraint(equalToConstant: 70),
             movieImage.heightAnchor.constraint(equalToConstant: 100),
             
+            labelView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+            labelView.leadingAnchor.constraint(equalTo: movieImage.trailingAnchor, constant: 10),
+            labelView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
+            labelView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
+            
             // Title Label
-            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            titleLabel.leadingAnchor.constraint(equalTo: movieImage.trailingAnchor, constant: 10),
-            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
+            titleLabel.topAnchor.constraint(equalTo: labelView.topAnchor, constant: 0),
+            titleLabel.leadingAnchor.constraint(equalTo: labelView.leadingAnchor, constant: 0),
+            titleLabel.trailingAnchor.constraint(equalTo: labelView.trailingAnchor, constant: 0),
 //            titleLabel.bottomAnchor.constraint(equalTo: detailsLabel.topAnchor, constant: 0),
             
             //Details Label
             detailsLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
-            detailsLabel.leadingAnchor.constraint(equalTo: movieImage.trailingAnchor, constant: 10),
-            detailsLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
-//            detailsLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
+            detailsLabel.leadingAnchor.constraint(equalTo: labelView.leadingAnchor, constant: 00),
+            detailsLabel.trailingAnchor.constraint(equalTo: labelView.trailingAnchor, constant: 0),
+//            detailsLabel.bottomAnchor.constraint(equalTo: labelView.bottomAnchor, constant: -10),
         ])
     }
     
@@ -83,7 +98,12 @@ class MovieDetailsCell: UITableViewCell {
     
     
     func setMovieDataToCell(data: MovieDataResponseModel){
-        titleLabel.text = data.original_title ?? ""
-        detailsLabel.text = data.overview ?? ""
+        titleLabel.text = data.original_title
+        detailsLabel.text = data.overview
+        
+        movieImage.downloaded(from: "https://image.tmdb.org/t/p/w500/" + (data.poster_path ?? ""))
     }
 }
+
+
+
